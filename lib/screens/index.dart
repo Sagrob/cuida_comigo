@@ -18,17 +18,17 @@ class MyApp extends StatelessWidget {
 class OptionsScreen extends StatelessWidget{
   final List<OptionItem> options = [
     OptionItem('Calendário', 'lib/assets/images/calendario.png'),
-    OptionItem('Meu paciente', 'assets/paciente.png'),
-    OptionItem('Comunidade', 'assets/comunidade.png'),
-    OptionItem('Lazer', 'assets/lazer.png'),
-    OptionItem('Dicas', 'assets/dicas.png'),
-    OptionItem('Direitos dos Idosos', 'assets/direitos.png'),
-    OptionItem('Autocuidado', 'assets/autocuidado.png'),
-    OptionItem('Compras', 'assets/compras.png'),
-    OptionItem('Lembretes', 'assets/lembretes.png'),
-    OptionItem('Personalize seus lembretes', 'assets/personalizar.png'),
-    OptionItem('Vagas para Cuidador', 'assets/vagas.png'),
-    OptionItem('Consulta Médica Online', 'assets/consulta.png'),
+    OptionItem('Meu paciente', 'lib/assets/images/paciente.png'),
+    OptionItem('Comunidade', 'lib/assets/images/comunidade.png'),
+    OptionItem('Lazer', 'lib/assets/images/lazer.png'),
+    OptionItem('Dicas', 'lib/assets/images/dicas.png'),
+    OptionItem('Direitos dos Idosos', 'lib/assets/images/direitos.png'),
+    OptionItem('Autocuidado', 'lib/assets/images/autocuidado.png'),
+    OptionItem('Compras', 'lib/assets/images/compras.png'),
+    OptionItem('Lembretes', 'lib/assets/images/lembretes.png'),
+    OptionItem('Personalize seus lembretes', 'lib/assets/images/personalizar.png'),
+    OptionItem('Vagas para Cuidador', 'lib/assets/images/vagas.png'),
+    OptionItem('Consulta Médica Online', 'lib/assets/images/consulta.png'),
   ];
 
   @override
@@ -42,7 +42,7 @@ class OptionsScreen extends StatelessWidget{
               children: [
                 CircleAvatar(
                   radius: 30,
-                  backgroundImage: AssetImage('assets/usuario.png'),
+                  backgroundImage: AssetImage('lib/assets/images/usuario.png'),
                 ),
                 SizedBox(width: 10),
                 Expanded(
@@ -102,7 +102,7 @@ class OptionsScreen extends StatelessWidget{
                     crossAxisCount: 1,
                     crossAxisSpacing: 10,
                     mainAxisSpacing: 10,
-                    childAspectRatio: 3 / 1,
+                    childAspectRatio: 15 / 1,
                     ),
                     itemCount: options.length,
                     itemBuilder: (context, index) {
@@ -126,7 +126,7 @@ class OptionsScreen extends StatelessWidget{
                         },
                         child: Container(
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: const Color.fromARGB(255, 49, 175, 21),
                             borderRadius: BorderRadius.circular(10),
                             boxShadow: [
                               BoxShadow(
@@ -137,21 +137,36 @@ class OptionsScreen extends StatelessWidget{
                               ),
                             ],
                           ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                          padding: EdgeInsets.all(2.0),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Image.asset(
-                                option.imagePath,
-                                width: 50,
-                                height: 50,
+                              Container(
+                                width: 100,
+                                height: 100,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8),
+                                  color: Colors.grey[200],
+                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(8),
+                                  child: Image.asset(
+                                    option.imagePath,
+                                    fit: BoxFit.cover,
+                                  )
+                                ),
                               ),
-                              SizedBox(height: 10),
-                              Text(
+                              SizedBox(height: 16),
+                              Expanded(
+                              child: Text(
                                 option.title,
-                                textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  fontSize: 16,
+                                  fontSize: 25,
                                   fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                  ),
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 1,
                                 ),
                               )
                             ],
