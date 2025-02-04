@@ -86,7 +86,35 @@ class _AgendaScreenState extends State<AgendaScreen> {
                 )
               ],
             ),
-            )
+          ),
+          Expanded(
+            child: Container(
+              padding: EdgeInsets.all(16.0),
+              decoration: BoxDecoration(
+                color: Colors.grey[200],
+                borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+              ),
+              child: ListView.builder(
+                itemCount: _events[_selectedDay]?.length ?? 0,
+                itemBuilder: (context, index) {
+                  final event = _events[_selectedDay]![index];
+                  return Card(
+                    margin: EdgeInsets.symmetric(vertical: 8.0),
+                    child: ListTile(
+                      leading: Icon(Icons.event, color: Colors.blue,),
+                      title: Text(
+                        event,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      subtitle: Text('Horário ${index + 7}:00 AM'),
+                    ),
+                  );
+                } ,
+              ),
+            ),
+          )
         ],
       ),
     );
