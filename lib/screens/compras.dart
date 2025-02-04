@@ -49,6 +49,34 @@ class MarketplaceScreen extends StatelessWidget {
         backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         actions: [],
       ),
-    )
+      Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: TextField(
+          decoration: InputDecoration(
+            hintText: 'Pesquise produtos...',
+            prefixIcon: Icon(Icons.search),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+          ),
+          onChanged: (value) => print('Pesquisa: $value'),
+        ),
+      ),
+      SizedBox(height: 20),
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: CarouselSlider(
+          options: CarouselOptions(
+            height: 200.0,
+            autoPlay: true,
+            enlargeCenterPage: true,
+            aspectRatio: 16/9,
+            autoPlayCurve: Curves.fastOutSlowIn,
+            enableInfiniteScroll: true,
+            autoPlayAnimationDuration: Duration(milliseconds: 800),
+          ),
+        ),
+      )
+    );
   }
 }
