@@ -10,12 +10,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: OptionsScreen(),
+      home: PacienteScreen(),
     );
   }
 }
 
-class OptionsScreen extends StatelessWidget{
+class PacienteScreen extends StatelessWidget{
   final List<OptionItem> options = [
     OptionItem('Diário de Fraldas', 'lib/assets/images/diario.png'),
     OptionItem('Lista de remédios', 'lib/assets/images/remedios.png'),

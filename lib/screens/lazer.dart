@@ -10,12 +10,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: OptionsScreen(),
+      home: LazerScreen(),
     );
   }
 }
 
-class OptionsScreen extends StatelessWidget{
+class LazerScreen extends StatelessWidget{
   final List<OptionItem> options = [
     OptionItem('Música', 'lib/assets/images/musica.png'),
     OptionItem('Exercícios de Relaxamento', 'lib/assets/images/exercicios.png'),
